@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Anirudh — Dev{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="/" class="nav__logo">anirudh<span class="accent">.</span>dev</a>
+    <nav class="nav__links">
+      <a href="/" class="nav__link {% if request.url.path == '/' %}nav__link--active{% endif %}">home</a>
+      <a href="/projects" class="nav__link {% if request.url.path == '/projects' %}nav__link--active{% endif %}">projects</a>
+      <a href="/blog" class="nav__link {% if request.url.path.startswith('/blog') %}nav__link--active{% endif %}">blog</a>
+      <a href="/contact" class="nav__link nav__link--cta">contact</a>
+    </nav>
+    <button class="nav__burger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="toggleMenu()">home</a>
+    <a href="/projects" onclick="toggleMenu()">projects</a>
+    <a href="/blog" onclick="toggleMenu()">blog</a>
+    <a href="/contact" onclick="toggleMenu()">contact</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__name">anirudh<span class="accent">.</span>dev</span>
+      <div class="footer__links">
+        <a href="https://github.com/you" target="_blank" rel="noopener">github</a>
+        <a href="https://linkedin.com/in/you" target="_blank" rel="noopener">linkedin</a>
+        <a href="mailto:you@email.com">email</a>
+      </div>
+      <span class="footer__built">built with fastapi + jinja2</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
