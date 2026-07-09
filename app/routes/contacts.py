@@ -1,4 +1,5 @@
 import smtplib
+import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from fastapi import APIRouter, Request, Form
@@ -6,13 +7,16 @@ from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from app.data.contacts import CONTACTS
 
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
-# CONFIGURATION (Ideally, move these to environment variables later)
-GMAIL_USER = "anirudhsuniltiwari@gmail.com"        # Your actual Gmail address
-GMAIL_PASSWORD = "xxxx xxxx xxxx xxxx"    # The 16-digit App Password you generated
-RECEIVER_EMAIL = "anirudhsuniltiwari@gmail.com"    # Where you want to receive the notifications
+# CONFIGURATION 
+GMAIL_USER = os.getenv("GMAIL_USER")
+GMAIL_PASSWORD = os.getenv("GMAIL_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
 
 @router.get("/contact")
 def contact(request: Request):
@@ -31,10 +35,16 @@ async def handle_contact_form(
 ):
     try:
         # 1. Setup the MIME email structure
-        msg = MIMEMultipart()
-        msg['From'] = GMAIL_USER
+        msg = MIMEMultipart() # the multipurpose internet mail extension (MIME) allows us to send emails with attachments and different content types.
+        # im sending this to myself because google smtp servers won't allow it due to security reasons. 
+        # these are the container in the MIME structure that holds the email headers and body.
+        msg['From'] = GMAIL_USER  
         msg['To'] = RECEIVER_EMAIL
         msg['Subject'] = f"Portfolio Contact: Message from {name}"
+
+
+        # The Magic Line:
+        msg['Reply-To'] = email           # This is the visitor's email (sending@gmail.com)! hitting the reply button will allow me to reply to the visitor's email directly.
 
         # 2. Design the email body
         body = f"You received a new portfolio message:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
@@ -48,6 +58,8 @@ async def handle_contact_form(
 
         # Redirect back to contact page (you could also redirect to a "Success" page)
         return RedirectResponse(url="/contact?status=success", status_code=303)
+    
+        
 
     except Exception as e:
         print(f"Error sending email: {e}")
