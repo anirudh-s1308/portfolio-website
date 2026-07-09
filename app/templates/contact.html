@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Anirudh — Contact{% endblock %}
+
+{% block content %}
+<section class="featured anim anim-1">
+  
+  <div class="featured__header" style="flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 48px;">
+    <span class="label">Get In Touch</span>
+    <h1 class="section-title" style="font-size: clamp(38px, 6vw, 64px);">
+      Let's build something <span class="accent">together.</span>
+    </h1>
+    <p style="color: var(--text-muted); max-width: 480px; font-size: 13.5px; font-family: var(--font-body);">
+      Have a question, a project proposal, or just want to talk deep backend architecture? Drop me a line below.
+    </p>
+  </div>
+
+  <div class="contact-container" style="max-width: 580px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(24px, 5vw, 40px); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);">
+    
+    <form action="/contact" method="POST" style="width: 100%;">
+      <table style="width: 100%; border-collapse: separate; border-spacing: 0 20px; font-family: var(--font-body);">
+        <tbody>
+          
+          <tr>
+            <td style="width: 120px; vertical-align: middle;">
+              <label for="name" style="font-size: 11.5px; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase;">Name</label>
+            </td>
+            <td>
+              <input type="text" id="name" name="name" placeholder="John Doe" required 
+                     style="background: var(--bg); border: 1px solid var(--border-mid); border-radius: var(--radius-sm); padding: 14px 16px; color: var(--text); font-family: var(--font-body); font-size: 13px; outline: none; width: 100%; box-sizing: border-box;">
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="width: 120px; vertical-align: middle;">
+              <label for="email" style="font-size: 11.5px; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase;">Your Email</label>
+            </td>
+            <td>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required 
+                     style="background: var(--bg); border: 1px solid var(--border-mid); border-radius: var(--radius-sm); padding: 14px 16px; color: var(--text); font-family: var(--font-body); font-size: 13px; outline: none; width: 100%; box-sizing: border-box;">
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="width: 120px; vertical-align: top; padding-top: 12px;">
+              <label for="message" style="font-size: 11.5px; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase;">Message</label>
+            </td>
+            <td>
+              <textarea id="message" name="message" rows="5" placeholder="Hey Anirudh, let's connect..." required 
+                        style="background: var(--bg); border: 1px solid var(--border-mid); border-radius: var(--radius-sm); padding: 14px 16px; color: var(--text); font-family: var(--font-body); font-size: 13px; outline: none; width: 100%; box-sizing: border-box; resize: vertical; min-height: 120px;"></textarea>
+            </td>
+          </tr>
+          
+          <tr>
+            <td></td> <td>
+              <button type="submit" 
+                      style="display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.2px; padding: 14px 28px; border-radius: var(--radius); background: var(--accent); color: var(--bg); cursor: pointer; width: 100%; box-sizing: border-box; border: none; transition: all 0.2s var(--ease); text-transform: uppercase; font-weight: bold;">
+                Send Message
+              </button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </form>
+
+  </div>
+</section>
+{% endblock content %}

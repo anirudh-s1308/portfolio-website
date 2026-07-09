@@ -69,34 +69,5 @@ PROJECTS: list[Project] = [
         tech=["Python", "AWS Lambda", "Pillow", "S3"],
         github="https://github.com/you/image-resizer",
     ),
-    Project(
-        title="Image Resizer Lambda",
-        description="Serverless image resizing on AWS Lambda triggered by S3 uploads. Supports WebP conversion and thumbnail generation.",
-        tech=["Python", "AWS Lambda", "Pillow", "S3"],
-        github="https://github.com/you/image-resizer",
-    ),
-    Project(
-        title="Image Resizer Lambda",
-        description="Serverless image resizing on AWS Lambda triggered by S3 uploads. Supports WebP conversion and thumbnail generation.",
-        tech=["Python", "AWS Lambda", "Pillow", "S3"],
-        github="https://github.com/you/image-resizer",
-    ),
-    Project(
-        title="Image Resizer Lambda",
-        description="Serverless image resizing on AWS Lambda triggered by S3 uploads. Supports WebP conversion and thumbnail generation.",
-        tech=["Python", "AWS Lambda", "Pillow", "S3"],
-        github="https://github.com/you/image-resizer",
-    ),
-    Project(
-        title="Image Resizer Lambda",
-        description="Serverless image resizing on AWS Lambda triggered by S3 uploads. Supports WebP conversion and thumbnail generation.",
-        tech=["Python", "AWS Lambda", "Pillow", "S3"],
-        github="https://github.com/you/image-resizer",
-    ),
-    Project(
-        title="Image Resizer Lambda",
-        description="Serverless image resizing on AWS Lambda triggered by S3 uploads. Supports WebP conversion and thumbnail generation.",
-        tech=["Python", "AWS Lambda", "Pillow", "S3"],
-        github="https://github.com/you/image-resizer",
-    ),
+    
 ]
