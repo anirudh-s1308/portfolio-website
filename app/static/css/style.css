@@ -489,12 +489,12 @@ img { display: block; max-width: 100%; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
 
-//* ── CONTACT FORM LAYOUT & ALIGNMENT ────────────────── */
+/* ── CONTACT FORM LAYOUT & ALIGNMENT ────────────────── */
 .contact-container {
   max-width: 560px;
   margin: 0 auto;
   /* Adds breathing room below your page-hero and above the footer */
-  padding: 60px clamp(20px, 5vw, 56px) var(--section); 
+  padding: 60px clamp(20px, 5vw, 56px) var(--section);
   position: relative;
   z-index: 1;
 }
@@ -592,4 +592,101 @@ img { display: block; max-width: 100%; }
 .form-group textarea {
   resize: vertical; /* Prevents blowing out layout grids sideways */
   min-height: 120px;
+}
+
+/* ══════════════════════════════════════════════════
+   NEW ANIMATIONS — appended, no existing rules removed
+   ══════════════════════════════════════════════════ */
+
+/* ── SCROLL REVEAL (driven by animations.js) ─────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.06s; }
+.reveal-delay-2 { transition-delay: 0.14s; }
+.reveal-delay-3 { transition-delay: 0.22s; }
+.reveal-delay-4 { transition-delay: 0.30s; }
+
+/* ── PROJECT CARD 3D TILT (mouse-driven, via JS) ─── */
+.project-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ── NAV LINK UNDERLINE SWEEP ─────────────────────── */
+.nav__link { position: relative; }
+.nav__link::after {
+  content: '';
+  position: absolute; left: 13px; right: 13px; bottom: 3px;
+  height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+.nav__link:hover::after,
+.nav__link--active::after { transform: scaleX(1); }
+
+/* ── HERO ACCENT SHIMMER ──────────────────────────── */
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+.hero__title .hl {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent) 100%);
+  background-size: 220% auto;
+  background-position: 0% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ── STATUS DOT RIPPLE ────────────────────────────── */
+.hero__status { position: relative; }
+.hero__status-dot { position: relative; }
+.hero__status-dot::after {
+  content: '';
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: ripple 2.4s var(--ease) infinite;
+}
+@keyframes ripple {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── BUTTON PRESS FEEDBACK ────────────────────────── */
+.btn:active,
+.btn-submit:active { transform: scale(0.97) !important; }
+
+/* ── CAROUSEL BUTTON ICON NUDGE ───────────────────── */
+.carousel__btn { transition: all 0.2s, transform 0.2s var(--ease); }
+.carousel__btn:active { transform: scale(0.9); }
+
+/* ── FOOTER LINK SLIDE-IN ON LOAD ─────────────────── */
+.footer__links a {
+  opacity: 0;
+  animation: slideIn 0.5s var(--ease) forwards;
+}
+.footer__links a:nth-child(1) { animation-delay: 0.05s; }
+.footer__links a:nth-child(2) { animation-delay: 0.12s; }
+.footer__links a:nth-child(3) { animation-delay: 0.19s; }
+.footer__links a:nth-child(4) { animation-delay: 0.26s; }
+
+/* ── REDUCED MOTION SUPPORT ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .anim, .reveal, .footer__links a {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero__title .hl { animation: none !important; }
+  .hero__status-dot::after { animation: none !important; display: none; }
+  .project-card { transition: border-color 0.2s, box-shadow 0.2s; }
 }

@@ -60,6 +60,7 @@
       document.getElementById('mobileMenu').classList.toggle('open');
     }
   </script>
-  {% block extra_scripts %}{% endblock %}
+  {% block extra_scripts %}
+  <script src="{{ url_for('static', path='js/animations.js') }}"></script>{% endblock %}
 </body>
 </html>
