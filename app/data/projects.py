@@ -21,9 +21,9 @@ PROJECTS: list[Project] = [
             "Currently in progress — retrieval accuracy and latency benchmarks "
             "are being finalized."
         ),
-        tech=["Python", "FastAPI", "pgvector", "Qdrant", "BM25", "RAG"],
+        tech=["Python", "FastAPI", "pgvector", "Qdrant", "BM25", "RAG", "Ragas"],
         # TODO: replace with your actual repo URL
-        github="https://github.com/anirudh-s1308/insurance-policy-rag-analyzer",
+        github="https://github.com/anirudh-s1308/policy-rag-engine",
         featured=True,
     ),
     Project(
@@ -35,7 +35,7 @@ PROJECTS: list[Project] = [
         ),
         tech=["Python", "Pytest", "Playwright", "Requests", "GitHub Actions"],
         # TODO: replace with your actual repo URL
-        github="https://github.com/anirudh-s1308/api-ui-test-automation",
+        github="https://github.com/anirudh-s1308/py-test-automation-framework",
         featured=True,
     ),
     Project(
@@ -47,7 +47,7 @@ PROJECTS: list[Project] = [
         ),
         tech=["Python", "FastAPI", "Rate Limiting"],
         # TODO: replace with your actual repo URL
-        github="https://github.com/anirudh-s1308/qr-code-generator-security-api",
+        github="https://github.com/anirudh-s1308/QRcode-Generator",
         featured=True,
     ),
     Project(
@@ -58,8 +58,45 @@ PROJECTS: list[Project] = [
             "augmentation (rotation, scaling, contrast adjustment) via OpenCV."
         ),
         tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
-        # TODO: replace with your actual repo URL
-        github="https://github.com/anirudh-s1308/character-recognition-system",
-        featured=True,
+        github="https://github.com/anirudh-s1308/",
+        featured=False,
     ),
+    Project(
+        title="Hybrid log classification",
+        description=(
+            "A three-tier cascading pipeline that classifies raw application/system "
+            "log lines by combining zero-cost regex matching, a fine-tuned "
+            "Sentence-BERT + Logistic Regression classifier, and a local LLM "
+            "fallback (Ollama) — exposed through a FastAPI service and monitored "
+        ),
+        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
+        # TODO: replace with your actual repo URL
+        github="https://github.com/anirudh-s1308/log-classification",
+        featured=True,
+        ),
+    Project(
+        title="Booking Engine",
+        description=(
+            "High-throughput ticket reservation engine built with FastAPI, "
+            "PostgreSQL, Redis, and RabbitMQ. "
+            " Uses pessimistic locking to guarantee zero percent overbooking and Redis"
+            " token buckets for distributed rate limiting"
+        ),
+        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
+        # TODO: replace with your actual repo URL
+        github="https://github.com/anirudh-s1308/booking-engine",
+        featured=True,
+        ),
+    Project(
+        title="Suport Agent",
+        description=(
+            "AI Support Agent: Built an automated customer support agent "
+            " using Python and LLMs to process user queries, route tickets,"
+            " and generate context-aware responses via REST APIs."
+        ),
+        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
+        # TODO: replace with your actual repo URL
+        github="https://github.com/anirudh-s1308/support-agent",
+        featured=True,
+        ),
 ]
