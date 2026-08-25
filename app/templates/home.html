@@ -45,7 +45,14 @@
       </a>
     </div>
 
-    <div class="hero__follow anim anim-5">
+  </div>
+
+  <div class="hero__art anim anim-3">
+    <div class="hero__art-frame">
+      <img src="/static/images/hero-art.jpg" alt="Illustration" class="hero__art-img" />
+    </div>
+
+    <div class="hero__follow hero__follow--under-art">
       <span class="hero__follow-label">Follow me:</span>
       <div class="hero__follow-links">
         {% for c in contacts %}
@@ -69,10 +76,6 @@
         {% endfor %}
       </div>
     </div>
-  </div>
-
-  <div class="hero__art anim anim-3">
-    <img src="/static/images/hero-art.jpg" alt="Illustration" class="hero__art-img" />
   </div>
 </section>
 
