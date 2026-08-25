@@ -22,7 +22,6 @@ PROJECTS: list[Project] = [
             "are being finalized."
         ),
         tech=["Python", "FastAPI", "pgvector", "Qdrant", "BM25", "RAG", "Ragas"],
-        # TODO: replace with your actual repo URL
         github="https://github.com/anirudh-s1308/policy-rag-engine",
         featured=True,
     ),
@@ -34,7 +33,6 @@ PROJECTS: list[Project] = [
             "CI/CD pipeline for automated regression checks on every push."
         ),
         tech=["Python", "Pytest", "Playwright", "Requests", "GitHub Actions"],
-        # TODO: replace with your actual repo URL
         github="https://github.com/anirudh-s1308/py-test-automation-framework",
         featured=True,
     ),
@@ -46,7 +44,6 @@ PROJECTS: list[Project] = [
             "and support scalable, concurrent request handling."
         ),
         tech=["Python", "FastAPI", "Rate Limiting"],
-        # TODO: replace with your actual repo URL
         github="https://github.com/anirudh-s1308/QRcode-Generator",
         featured=True,
     ),
@@ -70,7 +67,6 @@ PROJECTS: list[Project] = [
             "fallback (Ollama) — exposed through a FastAPI service and monitored "
         ),
         tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
-        # TODO: replace with your actual repo URL
         github="https://github.com/anirudh-s1308/log-classification",
         featured=True,
         ),
@@ -83,7 +79,6 @@ PROJECTS: list[Project] = [
             " token buckets for distributed rate limiting"
         ),
         tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
-        # TODO: replace with your actual repo URL
         github="https://github.com/anirudh-s1308/booking-engine",
         featured=True,
         ),
@@ -94,9 +89,19 @@ PROJECTS: list[Project] = [
             " using Python and LLMs to process user queries, route tickets,"
             " and generate context-aware responses via REST APIs."
         ),
-        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
-        # TODO: replace with your actual repo URL
+        tech=["Python", "PyTorch", "Gemini", "FastAPI"],
         github="https://github.com/anirudh-s1308/support-agent",
         featured=True,
         ),
+    Project(
+            title="Resume Agent",
+            description=(
+                "AI Support Agent: Built an automated resume screening agent "
+                " using Python and LLMs to process resumes, match candidates with job requirements,"
+                " and generate context-aware responses via REST APIs."
+            ),
+            tech=["Python", "Gemini", "FastAPI", "CNN", "RNN"],
+            github="https://github.com/anirudh-s1308/support-agent",
+            featured=True,
+            ),
 ]
