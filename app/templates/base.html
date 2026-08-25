@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}Anirudh — Dev{% endblock %}</title>
+  <title>{% block title %}Anirudh S — AI Engineer{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/style.css" />
   {% block extra_head %}{% endblock %}
 </head>
@@ -14,26 +14,21 @@
 
   <!-- NAV -->
   <header class="nav">
-    <a href="/" class="nav__logo">anirudh<span class="accent">.</span>dev</a>
-    <nav class="nav__links">
-      <a href="/" class="nav__link nav__link nav__link--cta{% if request.url.path == '/' %}nav__link--active{% endif %}">Home</a>
-      <a href="/projects" class="nav__link nav__link nav__link--cta{% if request.url.path == '/projects' %}nav__link--active{% endif %}">Projects</a>
-      <a href="/blog" class="nav__link nav__link nav__link--cta{% if request.url.path.startswith('/blog') %}nav__link--active{% endif %}">Blog</a>
-      <a href="/contact" class="nav__link nav__link--cta {% if request.url.path == '/contact' %}nav__link--active{% endif %}">Contact</a>
-    </nav>
-
-    <button class="nav__burger" aria-label="Menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__pill">
+      <a href="/" class="nav__link{% if request.url.path == '/' %} nav__link--active{% endif %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+        <span class="nav__link-text">Home</span>
+      </a>
+      <a href="/projects" class="nav__link{% if request.url.path == '/projects' %} nav__link--active{% endif %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+        <span class="nav__link-text">Projects</span>
+      </a>
+      <a href="/contact" class="nav__link{% if request.url.path == '/contact' %} nav__link--active{% endif %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span class="nav__link-text">Contact</span>
+      </a>
+    </div>
   </header>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="toggleMenu()">Home</a>
-    <a href="/projects" onclick="toggleMenu()">projects</a>
-    <a href="/blog" onclick="toggleMenu()">blog</a>
-    <a href="/contact" onclick="toggleMenu()">contact</a>
-  </div>
 
   <!-- MAIN CONTENT -->
   <main>
@@ -45,9 +40,8 @@
     <div class="footer__inner">
       <span class="footer__name">anirudh<span class="accent">.</span>dev</span>
       <div class="footer__links">
-      
         <a href="https://github.com/anirudh-s1308" target="_blank" rel="noopener">github</a>
-        <a href="https://linkedin.com/in/anirudh-s1308" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://linkedin.com/in/anirudh-s130801" target="_blank" rel="noopener">linkedin</a>
         <a href="mailto:anirudhsuniltiwari@gmail.com">email</a>
         <a href="https://x.com/Anirudh_1308" target="_blank" rel="noopener">X</a>
       </div>
@@ -55,11 +49,6 @@
     </div>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
-  </script>
   {% block extra_scripts %}
   <script src="{{ url_for('static', path='js/animations.js') }}"></script>{% endblock %}
 </body>
