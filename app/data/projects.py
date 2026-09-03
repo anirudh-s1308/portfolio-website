@@ -66,7 +66,7 @@ PROJECTS: list[Project] = [
             "Sentence-BERT + Logistic Regression classifier, and a local LLM "
             "fallback (Ollama) — exposed through a FastAPI service and monitored "
         ),
-        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
+        tech=["Python", "PyTorch", "NumPy", "Pandas", "Scikit-learn", "Machine Learning", "FastAPI", "Regex"],
         github="https://github.com/anirudh-s1308/log-classification",
         featured=True,
         ),
@@ -78,7 +78,7 @@ PROJECTS: list[Project] = [
             " Uses pessimistic locking to guarantee zero percent overbooking and Redis"
             " token buckets for distributed rate limiting"
         ),
-        tech=["Python", "PyTorch", "OpenCV", "CNN", "RNN"],
+        tech=["Python", "FastAPI", "PostgreSQL", "Redis"]
         github="https://github.com/anirudh-s1308/booking-engine",
         featured=True,
         ),
@@ -89,7 +89,7 @@ PROJECTS: list[Project] = [
             " using Python and LLMs to process user queries, route tickets,"
             " and generate context-aware responses via REST APIs."
         ),
-        tech=["Python", "PyTorch", "Gemini", "FastAPI"],
+        tech=["Python", "LLM", "Gemini", "FastAPI"],
         github="https://github.com/anirudh-s1308/support-agent",
         featured=True,
         ),
@@ -100,7 +100,7 @@ PROJECTS: list[Project] = [
                 " An agent which ranks a set of resumes against a given job "
                 " description and outputs an ordered shortlist."
             ),
-            tech=["Python", "Gemini", "FastAPI", "CNN", "RNN"],
+            tech=["Python", "Gemini", "FastAPI"],
             github="https://github.com/anirudh-s1308/support-agent",
             featured=True,
             ),
