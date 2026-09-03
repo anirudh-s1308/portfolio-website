@@ -96,9 +96,9 @@ PROJECTS: list[Project] = [
     Project(
             title="Resume Agent",
             description=(
-                "AI Support Agent: Built an automated resume screening agent "
-                " using Python and LLMs to process resumes, match candidates with job requirements,"
-                " and generate context-aware responses via REST APIs."
+                "AI Resume Agent: Built an automated resume screening agent "
+                " An agent which ranks a set of resumes against a given job "
+                " description and outputs an ordered shortlist."
             ),
             tech=["Python", "Gemini", "FastAPI", "CNN", "RNN"],
             github="https://github.com/anirudh-s1308/support-agent",
