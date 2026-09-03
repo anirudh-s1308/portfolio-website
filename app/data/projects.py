@@ -78,7 +78,7 @@ PROJECTS: list[Project] = [
             " Uses pessimistic locking to guarantee zero percent overbooking and Redis"
             " token buckets for distributed rate limiting"
         ),
-        tech=["Python", "FastAPI", "PostgreSQL", "Redis"]
+        tech=["Python", "FastAPI", "PostgreSQL", "Redis", "RabbitMQ"],
         github="https://github.com/anirudh-s1308/booking-engine",
         featured=True,
         ),
