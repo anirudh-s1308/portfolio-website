@@ -90,8 +90,10 @@ svg { display: block; }
 .nav {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: center;
-  padding: 18px clamp(16px, 4vw, 48px) 10px;
-  background: linear-gradient(to bottom, rgba(250,243,233,0.9), rgba(250,243,233,0));
+  padding: 18px clamp(16px, 4vw, 48px) 22px;
+  background: linear-gradient(to bottom, rgba(250,243,233,0.98) 55%, rgba(250,243,233,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   pointer-events: none;
 }
 .nav > * { pointer-events: auto; }
@@ -451,13 +453,17 @@ svg { display: block; }
   width: 38px; height: 38px;
   border-radius: 50%;
   border: 1.5px solid var(--border-light);
+  background: var(--bg-card);
   color: var(--text-heading); font-size: 15px;
   display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(47,53,66,0.05);
+  transition: all 0.2s var(--ease);
 }
 .carousel__btn:hover {
   border-color: var(--accent); color: var(--accent-dark);
   background: var(--accent-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(28,175,211,0.18);
 }
 
 .carousel__dots {
@@ -566,7 +572,7 @@ svg { display: block; }
 .contact-container {
   max-width: 560px;
   margin: 0 auto;
-  padding: 60px clamp(20px, 5vw, 56px) var(--section);
+  padding: clamp(96px, 14vw, 140px) clamp(20px, 5vw, 56px) var(--section);
   position: relative;
   z-index: 1;
 }
