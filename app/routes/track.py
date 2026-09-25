@@ -1,42 +1,34 @@
-from pydantic import BaseModel
+import sys
+from datetime import datetime
 from fastapi import APIRouter, Header, HTTPException, status
-from pathlib import Path
+from pydantic import BaseModel
 
 router = APIRouter(tags=["Tracking"])
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-COUNTER_FILE = DATA_DIR / "usage_count.txt"
+PING_SECRET = "YOUR_CUSTOM_SECRET_KEY"
 
-APP_SECRET = "YOUR_CUSTOM_SECRET_KEY"
 
-if not COUNTER_FILE.exists():
-    COUNTER_FILE.write_text("0")
+class PingPayload(BaseModel):
+    docs_modified: int = 1
 
-class TrackPayload(BaseModel):
-    events_count: int = 1
 
-def increment_count(amount: int = 1) -> int:
-    try:
-        current = int(COUNTER_FILE.read_text().strip())
-    except (ValueError, FileNotFoundError):
-        current = 0
-        
-    new_total = current + max(1, amount)
-    COUNTER_FILE.write_text(str(new_total))
-    return new_total
-
-@router.post("/api/track")
-async def track_usage(
-    payload: TrackPayload,
-    x_app_secret: str = Header(None)
+@router.post("/api/ping")
+async def log_paper_app_usage(
+    payload: PingPayload,
+    x_ping_secret: str = Header(None),
 ):
-    if x_app_secret != APP_SECRET:
+    if x_ping_secret != PING_SECRET:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Unauthorized"
+            detail="Unauthorized",
         )
-    
-    new_total = increment_count(payload.events_count)
-    return {"status": "success", "count": new_total}
+
+    timestamp = datetime.utcnow().isoformat()
+    log_entry = (
+        f"[PAPER_APP_TELEMETRY] App executed at {timestamp} "
+        f"| Modified {payload.docs_modified} document(s)"
+    )
+    print(log_entry, flush=True)
+    sys.stdout.flush()
+
+    return {"status": "logged", "received_count": payload.docs_modified}
